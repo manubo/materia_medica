@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MateriaMedica</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+  </head>
+
+  <body>
+    <%= yield %>
+    <% byebug %>
+    <%= javascript_bundle_tag 'app' %>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  db:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_DB: materia_medica_dev
+      POSTGRES_USER: materia_medica
+      POSTGRES_PASSWORD: docker
+    ports:
+      - 5532:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
