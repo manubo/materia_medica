@@ -1,0 +1,21 @@
+@import "variables";
+@import "~bootstrap/scss/bootstrap";
+
+nav {
+  font-family: $headings-font-family;
+}
+
+.clickable:hover {
+  background-color: gray("200");
+}
+
+.entry {
+  .card-header {
+    font-family: $headings-font-family;
+    font-weight: bold;
+  }
+}
+
+.font-sm {
+  font-size: 0.8em;
+}

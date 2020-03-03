@@ -1,1 +1,13 @@
-<h1>Remedies</h1>
+<section class="row">
+  <div class="col-12">
+    <ul class="remedies list-group">
+      <%= @remedies.each do |remedy| %>
+        <li class="list-group-item p-0 clickable">
+          <%= link_to remedy_path(remedy), class: "text-decoration-none text-body d-block px-4 py-3" do %>
+            <%= remedy.name %> <em class="text-muted font-sm"><%= remedy.acronym %></em>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</section>
