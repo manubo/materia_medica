@@ -68,4 +68,4 @@ production:
   <<: *default
   database: materia_medica
   username: materia_medica
-  password: <%= ENV['MM_DATABASE_PASSWORD'] %>
+  password: <%= Rails.application.credentials.db_password %>
