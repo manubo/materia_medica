@@ -4,7 +4,7 @@ class RemediesController < ApplicationController
   end
 
   def show
-    @categories = Category.all
+    @categories = Category.order(:sorting)
     @remedy = Remedy.includes(entries: :category).find(params[:id])
   end
 end
