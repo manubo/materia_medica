@@ -20,6 +20,13 @@ class RemediesController < ApplicationController
     end
   end
 
+  def destroy
+    remedy = Remedy.find(params[:id])
+    if remedy.destroy!
+      redirect_to remedies_path
+    end
+  end
+
   private
 
   def find_remedy

@@ -1,4 +1,8 @@
 <%= form_with model: @remedy, local: true, class: 'mb-5' do |f| %>
+  <div class="d-flex justify-content-end my-4 btn-toolbar">
+    <button type="submit" class="btn btn-success mr-2">Speichern</button>
+    <%= link_to("Abbrechen", remedy_path(@remedy), class: "btn btn-outline-secondary btn-light", role: "button") %>
+  </div>
   <div class="form-group">
     <%= f.text_field :name, placeholder: "Name", class: "form-control form-control-lg" %>
   </div>
@@ -26,5 +30,8 @@
       </div>
     <% end %>
   </div>
-  <button type="submit" class="btn btn-primary mt-4">Speichern</button>
+  <div class="d-flex justify-content-start my-4 btn-toolbar">
+    <button type="submit" class="btn btn-success mr-2">Speichern</button>
+    <%= link_to("Abbrechen", remedy_path(@remedy), class: "btn btn-outline-secondary btn-light", role: "button") %>
+  </div>
 <% end %>

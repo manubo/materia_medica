@@ -6,9 +6,8 @@ module ApplicationHelper
   def render_nav_actions
     content_tag(:div, class: "b") do
       if @remedy && request.path == remedy_path(@remedy)
-        link_to("Bearbeiten", edit_remedy_path(@remedy), class: "btn btn-sm btn-outline-primary btn-light", role: "button")
-      elsif @remedy && request.path == edit_remedy_path(@remedy)
-        link_to("Abbrechen", remedy_path(@remedy), class: "btn btn-sm btn-outline-secondary btn-light", role: "button")
+        link_to("Bearbeiten", edit_remedy_path(@remedy), class: "btn btn-sm btn-outline-success btn-light mr-1", role: "button") +
+        link_to("Löschen", remedy_path(@remedy), class: "btn btn-sm btn-outline-danger btn-light", role: "button", method: :delete, data: { confirm: "Bist du sicher?" })
       end
     end
   end
