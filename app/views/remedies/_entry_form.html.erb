@@ -1,0 +1,11 @@
+<div class="card entry my-2 h-100">
+  <div class="card-header">
+    <%= form.object.category.name %>
+  </div>
+  <div class="card-body p-0">
+    <div class="card-text entry__description">
+      <%= form.text_area :description, class: "form-control h-100", rows: 7 %>
+      <%= form.hidden_field :category_id %>
+    </div>
+  </div>
+</div>

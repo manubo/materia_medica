@@ -2,23 +2,23 @@
   <div class="col-12">
     <h1><%= @remedy.name %> <em class="font-sm text-secondary"><%= @remedy.acronym %></em></h1>
     <div class="row mt-5 mb-5 align-items-stretch">
-      <% @categories.slice(0..11).each do |category| %>
+      <% @remedy.entries.slice(0..11).each do |entry| %>
         <div class="col-12 col-lg-4 my-2">
-          <%= render "entry", remedy: @remedy, category: category %>
+          <%= render "entry", entry: entry %>
         </div>
       <% end %>
     </div>
-    <% @categories.slice(12..21).each do |category| %>
+    <% @remedy.entries.slice(12..21).each do |entry| %>
       <div class="row my-3">
         <div class="col-12">
-          <%= render "entry", remedy: @remedy, category: category %>
+          <%= render "entry", entry: entry %>
         </div>
       </div>
     <% end %>
     <div class="row mt-4 align-items-stretch">
-      <% @categories.slice(22..24).each do |category| %>
+      <% @remedy.entries.slice(22..24).each do |entry| %>
         <div class="col-12 col-lg-4">
-          <%= render "entry", remedy: @remedy, category: category %>
+          <%= render "entry", entry: entry %>
         </div>
       <% end %>
     </div>

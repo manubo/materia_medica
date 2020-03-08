@@ -11,22 +11,23 @@
   </head>
 
   <body>
-    <header class="mb-3">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Materia Medica</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item<%= nav_active("remedies") %>">
-              <a class="nav-link" href="/remedies">Mittel</a>
-            </li>
-          </ul>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary mb-4">
+      <a class="navbar-brand" href="#">Materia Medica</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item<%= nav_active("remedies") %>">
+            <a class="nav-link" href="/remedies">Mittel</a>
+          </li>
+        </ul>
+        <div>
+          <%= render_nav_actions %>
         </div>
-      </nav>
-    </header>
-    <main role="main" class="container">
+      </div>
+    </nav>
+    <main role="main" class="container-fluid">
       <%= yield %>
     </main>
     <%= javascript_bundle_tag 'app' %>
