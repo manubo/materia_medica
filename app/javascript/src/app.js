@@ -10,4 +10,10 @@ function trixRemoveAttachment() {
     .forEach(node => node.remove());
 }
 
+document
+  .getElementById("submit-remedy-form")
+  ?.addEventListener("click", event => {
+    document.getElementById("remedy-form").submit();
+  });
+
 trixRemoveAttachment();

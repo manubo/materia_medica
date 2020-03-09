@@ -6,7 +6,7 @@
     <div class="card-text entry__description">
       <%= form.hidden_field :description, id: "editor-#{form.object.category_id}" %>
       <trix-editor input="editor-<%= form.object.category_id %>">
-      <%= form.hidden_field :category_id %>
     </div>
+    <%= form.hidden_field :category_id %>
   </div>
 </div>
