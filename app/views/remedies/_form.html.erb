@@ -1,4 +1,4 @@
-<%= form_with model: @remedy, local: true, class: 'mb-5' do |f| %>
+<%= form_with model: @remedy, local: true, id: "entry-form", class: 'mb-5' do |f| %>
   <div class="d-flex justify-content-end my-4 btn-toolbar">
     <button type="submit" class="btn btn-success mr-2">Speichern</button>
     <%= link_to("Abbrechen", cancel_path, class: "btn btn-outline-secondary btn-light", role: "button") %>

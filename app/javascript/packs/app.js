@@ -14,3 +14,4 @@ require("@rails/ujs").start();
 
 import "bootstrap/dist/js/bootstrap";
 import "../css/app.scss";
+import "../src/app.js";

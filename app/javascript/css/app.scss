@@ -14,8 +14,19 @@ nav {
     font-family: $headings-font-family;
     font-weight: bold;
   }
+
+  .entry__description {
+    p {
+      margin: 0;
+    }
+  }
 }
 
 .font-sm {
   font-size: 0.8em;
+}
+
+.ql-container {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
 }

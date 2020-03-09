@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_071234) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", limit: 255, null: false
-    t.datetime "created_at", precision: 0, null: false
+    t.datetime "inserted_at", precision: 0, null: false
     t.datetime "updated_at", precision: 0, null: false
     t.integer "sorting", default: 0, null: false
     t.index ["sorting"], name: "categories_sorting_index"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_071234) do
     t.bigint "remedy_id", null: false
     t.bigint "category_id", null: false
     t.text "description"
-    t.datetime "created_at", precision: 0, null: false
+    t.datetime "inserted_at", precision: 0, null: false
     t.datetime "updated_at", precision: 0, null: false
     t.index ["category_id"], name: "entries_category_id_index"
     t.index ["remedy_id", "category_id"], name: "entries_remedy_id_category_id_index", unique: true
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_071234) do
   create_table "remedies", force: :cascade do |t|
     t.string "name", limit: 255, null: false
     t.string "acronym", limit: 255
-    t.datetime "created_at", precision: 0, null: false
+    t.datetime "inserted_at", precision: 0, null: false
     t.datetime "updated_at", precision: 0, null: false
     t.index ["acronym"], name: "remedies_acronym_index", unique: true
   end
