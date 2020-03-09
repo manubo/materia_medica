@@ -21,7 +21,7 @@ module ApplicationHelper
     content_tag(:div, class: "b") do
       if @remedy&.id && request.path == remedy_path(@remedy)
         link_to("Bearbeiten", edit_remedy_path(@remedy), class: "btn btn-sm btn-outline-success btn-light mr-1", role: "button") +
-        link_to("Löschen", remedy_path(@remedy), class: "btn btn-sm btn-outline-danger btn-light", role: "button", method: :delete, data: { confirm: "\"#{@remedy.name} - #{@remedy.acronym}\" wirklich löschen?" })
+        link_to("Löschen", remedy_path(@remedy), class: "btn btn-sm btn-outline-danger btn-light", role: "button", method: :delete, data: { confirm: "\"#{@remedy.name}#{@remedy.acronym ? " - " + @remedy.acronym : ""}\" wirklich löschen?" })
       elsif request.path == remedies_path
         link_to("Neues Mittel", new_remedy_path, class: "btn btn-sm btn-outline-success btn-light mr-1", role: "button")
       end
