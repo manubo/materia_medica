@@ -1,0 +1,43 @@
+<%= form_with model: @remedy, local: true, class: 'mb-5' do |f| %>
+  <div class="d-flex justify-content-end my-4 btn-toolbar">
+    <button type="submit" class="btn btn-success mr-2">Speichern</button>
+    <%= link_to("Abbrechen", cancel_path, class: "btn btn-outline-secondary btn-light", role: "button") %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :name, placeholder: "Name", class: class_names("form-control form-control-lg", "is-invalid" => @remedy.errors[:name].any?) %>
+    <% if @remedy.errors[:name].any? %>
+      <small class="text-danger"><%= @remedy.errors[:name].join(" - ") %></small>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :acronym, placeholder: "Akronym", class: class_names("form-control", "is-invalid" => @remedy.errors[:acronym].any?) %>
+    <% if @remedy.errors[:acronym].any? %>
+      <small class="text-danger"><%= @remedy.errors[:acronym].join(" - ") %></small>
+    <% end %>
+  </div>
+  <div class="row mt-5 mb-5 align-items-stretch">
+    <%= f.fields_for :entries, @remedy.entries.slice(0..11) do |ef| %>
+      <div class="col-lg-4 col-12 my-2">
+        <%= render("entry_form", form: ef) %>
+      </div>
+    <% end %>
+  </div>
+  <%= f.fields_for :entries, @remedy.entries.slice(12..21) do |ef| %>
+    <div class="row my-3">
+      <div class="col-12">
+        <%= render("entry_form", form: ef) %>
+      </div>
+    </div>
+  <% end %>
+  <div class="row mt-4 align-items-stretch">
+    <%= f.fields_for :entries, @remedy.entries.slice(22..24) do |ef| %>
+      <div class="col-lg-4 col-12">
+        <%= render("entry_form", form: ef) %>
+      </div>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-end my-4 btn-toolbar">
+    <button type="submit" class="btn btn-success mr-2">Speichern</button>
+    <%= link_to("Abbrechen", cancel_path, class: "btn btn-outline-secondary btn-light", role: "button") %>
+  </div>
+<% end %>

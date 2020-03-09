@@ -7,14 +7,27 @@ class RemediesController < ApplicationController
     @remedy = find_remedy
   end
 
+  def new
+    @remedy = Remedy.new(entries: Category.all.map { |c| Entry.new(category_id: c.id, description: nil) })
+  end
+
+  def create
+    @remedy = Remedy.create(sanitized_remedy_params)
+    if @remedy.errors.empty?
+      redirect_to remedy_path(@remedy)
+    else
+      render :new
+    end
+  end
+
   def edit
     @remedy = find_remedy
   end
 
   def update
-    remedy = Remedy.find(params[:id])
-    if remedy.update(remedy_params)
-      redirect_to remedy_path(remedy)
+    @remedy = Remedy.find(params[:id])
+    if @remedy.update(sanitized_remedy_params)
+      redirect_to remedy_path(@remedy)
     else
       render :edit
     end
@@ -31,6 +44,14 @@ class RemediesController < ApplicationController
 
   def find_remedy
     Remedy.includes(entries: :category).order("categories.sorting").find(params[:id])
+  end
+
+  def sanitized_remedy_params
+    remedy_params.tap do |attrs|
+      if attrs[:acronym].blank?
+        attrs[:acronym] = nil
+      end
+    end
   end
 
   def remedy_params
