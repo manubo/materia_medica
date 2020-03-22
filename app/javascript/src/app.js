@@ -1,12 +1,16 @@
 import "trix/dist/trix.css";
 import "trix/dist/trix.js";
 
-function trixRemoveAttachment() {
+function initTrixEditors() {
   document.addEventListener("trix-file-accept", event => {
     event.preventDefault();
   });
   document
     .querySelectorAll('[data-trix-button-group="file-tools"]')
+    .forEach(node => node.remove());
+
+  document
+    .querySelectorAll(".editor-simple .trix-button-group--block-tools")
     .forEach(node => node.remove());
 }
 
@@ -16,4 +20,4 @@ document
     document.getElementById("remedy-form").submit();
   });
 
-trixRemoveAttachment();
+initTrixEditors();

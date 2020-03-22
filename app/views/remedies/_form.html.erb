@@ -14,21 +14,21 @@
   <div class="row mt-5 mb-5 align-items-stretch">
     <%= f.fields_for :entries, @remedy.entries.slice(0..11) do |ef| %>
       <div class="col-lg-4 col-12 my-2">
-        <%= render("entry_form", form: ef) %>
+        <%= render("entry_form", form: ef, editor_class: "simple") %>
       </div>
     <% end %>
   </div>
   <%= f.fields_for :entries, @remedy.entries.slice(12..21) do |ef| %>
     <div class="row my-3">
       <div class="col-12">
-        <%= render("entry_form", form: ef) %>
+        <%= render("entry_form", form: ef, editor_class: "full") %>
       </div>
     </div>
   <% end %>
   <div class="row mt-4 align-items-stretch">
     <%= f.fields_for :entries, @remedy.entries.slice(22..24) do |ef| %>
       <div class="col-lg-4 col-12">
-        <%= render("entry_form", form: ef) %>
+        <%= render("entry_form", form: ef, editor_class: "simple") %>
       </div>
     <% end %>
   </div>
