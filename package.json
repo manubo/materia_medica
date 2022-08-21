@@ -7,8 +7,8 @@
     "build": "node_modules/.bin/webpack --progress --color --env production"
   },
   "dependencies": {
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
+    "@rails/actioncable": "^6.1.6",
+    "@rails/activestorage": "^6.1.6",
     "@rails/ujs": "^6.0.0",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
