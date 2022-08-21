@@ -2,26 +2,24 @@ const path = require("path");
 const glob = require("glob");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const ManifestPlugin = require("webpack-manifest-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 
 module.exports = (env, options) => {
-  const isProd = !!options.p;
+  const isProd = !!env.production;
 
   return {
     optimization: {
-      minimizer: [
-        new TerserPlugin({ cache: true, parallel: true, sourceMap: false }),
-        new OptimizeCSSAssetsPlugin({})
-      ]
+      minimize: true,
+      minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
     },
     entry: {
-      app: ["./app/javascript/packs/app.js"]
+      app: ["./app/javascript/packs/app.js"],
     },
     output: {
       filename: "[name].[contenthash].js",
       path: path.resolve(__dirname, "public", "assets"),
-      publicPath: isProd ? "/assets/" : "http://localhost:8080/assets/"
+      publicPath: isProd ? "/assets/" : "http://localhost:8080/assets/",
     },
     module: {
       rules: [
@@ -29,12 +27,12 @@ module.exports = (env, options) => {
           test: /\.jsx?$/,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader"
-          }
+            loader: "babel-loader",
+          },
         },
         {
           test: /\.s?css$/,
-          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
         },
         {
           test: /\.svg$/,
@@ -42,18 +40,20 @@ module.exports = (env, options) => {
             {
               loader: "html-loader",
               options: {
-                minimize: true
-              }
-            }
-          ]
-        }
-      ]
+                minimize: true,
+              },
+            },
+          ],
+        },
+      ],
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: "[name].[contenthash].css"
+        filename: "[name].[contenthash].css",
       }),
-      new ManifestPlugin()
-    ]
+      new WebpackManifestPlugin(),
+    ],
+
+    mode: isProd ? "production" : "development",
   };
 };
