@@ -11,7 +11,7 @@ set :repo_url, "git@github.com:manubo/materia_medica.git"
 set :deploy_to, "/var/www/materia_medica"
 set :assets_output_path, File.expand_path("../public/assets", __dir__)
 set :rbenv_type, :user # or :system, depends on your rbenv setup
-set :rbenv_ruby, "3.1.2"
+set :rbenv_ruby, "3.2.2"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
