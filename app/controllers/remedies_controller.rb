@@ -8,7 +8,7 @@ class RemediesController < ApplicationController
   end
 
   def new
-    @remedy = Remedy.new(entries: Category.all.map { |c| Entry.new(category_id: c.id, description: nil) })
+    @remedy = Remedy.new(entries: Category.order(:sorting).all.map { |c| Entry.new(category_id: c.id, description: nil) })
   end
 
   def create
@@ -43,7 +43,7 @@ class RemediesController < ApplicationController
   private
 
   def find_remedy
-    Remedy.includes(entries: :category).order("categories.sorting").find(params[:id])
+    Remedy.includes(entries: :category).find(params[:id])
   end
 
   def sanitized_remedy_params
