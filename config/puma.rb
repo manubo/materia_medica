@@ -27,11 +27,11 @@ workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 
 return if ["development", "test"].include?(env)
 
-shared_dir = "/var/www/materia_medica/shared"
-pidfile "#{shared_dir}/tmp/pids/puma.pid"
-state_path "#{shared_dir}/tmp/pids/puma.state"
-bind "unix://#{shared_dir}/tmp/sockets/puma.sock"
-stdout_redirect "#{shared_dir}/log/puma_access.log", "#{shared_dir}/log/puma_error.log", true
+# shared_dir = Rails.root.join("shared")
+# pidfile "#{shared_dir}/tmp/pids/puma.pid"
+# state_path "#{shared_dir}/tmp/pids/puma.state"
+# bind "unix://#{shared_dir}/tmp/sockets/puma.sock"
+# stdout_redirect "#{shared_dir}/log/puma_access.log", "#{shared_dir}/log/puma_error.log", true
 
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code

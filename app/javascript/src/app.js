@@ -1,5 +1,5 @@
 import "trix/dist/trix.css";
-import "trix/dist/trix.js";
+import "trix/dist/trix.esm.js";
 
 function initTrixEditors() {
   document.addEventListener("trix-file-accept", event => {

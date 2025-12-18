@@ -1,0 +1,9 @@
+[tools]
+ruby = "3.2.7"
+node = "20"
+
+
+[env]
+OBJC_DISABLE_INITIALIZE_FORK_SAFETY = "YES"
+RAILS_ENV = "production"
+RAILS_SERVE_STATIC_FILES = "true"
