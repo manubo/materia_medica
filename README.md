@@ -1,4 +1,18 @@
-# SETUP
+# Datenmigration
+
+## Auf dem Server
+
+- `pg_dump -h localhost -U materia_medica -d materia_medica -f materia_medica.dump.sql`
+
+## Lokal
+
+- `docker compose exec db dropdb -U materia_medica materia_medica`
+- `docker compose exec db createdb -U materia_medica materia_medica`
+- `docker compose exec -T db psql -U materia_medica -h localhost materia_medica < data/materia_medica.dump.sql`
+- `bin/rails db:drop db:setup`
+- `bin/rails runner script/migrate_data.rb`
+
+# Einrichtung
 
 - `homebrew` installieren: [https://brew.sh](https://brew.sh)
 - `brew install mise`
@@ -7,3 +21,7 @@
 - `bundle install`
 - `npm install`
 - `npm run build`
+
+# Ausführung
+
+- `bin/start`

@@ -57,4 +57,6 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "concurrent-ruby", "= 1.3.4"
 gem "bigdecimal", "~> 4.0"
 gem "mutex_m", "~> 0.3.0"
+# Only for data migration
+gem "pg"
 gem "sqlite3", "~> 1.4"

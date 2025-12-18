@@ -148,6 +148,7 @@ GEM
     nokogiri (1.18.10-arm64-darwin)
       racc (~> 1.4)
     ostruct (0.6.3)
+    pg (1.6.2-arm64-darwin)
     prism (1.7.0)
     public_suffix (7.0.0)
     puma (7.1.0)
@@ -260,6 +261,7 @@ DEPENDENCIES
   net-imap
   net-pop
   net-smtp
+  pg
   puma
   rails (~> 6.1)
   selenium-webdriver
