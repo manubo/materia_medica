@@ -40,3 +40,15 @@
 - `cd materia-medica`
 - `bin/start`
 - Öffne Link: [http://localhost:3000](http://localhost:3000)
+
+# Materia-Medica beenden (im Terminal)
+
+Im Terminal, in dem Materia-Medica gestartet wurde, die Tastenkombination ctrl + c drücken.
+
+# Materia-Medica updates (im Terminal)
+
+Materia-Medical beenden wie oben beschrieben, falls es läuft.
+
+- `git pull`
+
+Danach, Materia-Medica starten, wie oben beschrieben.
