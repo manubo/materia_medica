@@ -11,6 +11,7 @@ module RailsExt
       end
     end
   end
+end
 
 ActiveSupport.on_load(:active_record_sqlite3adapter) do
   # self refers to `SQLite3Adapter` here,

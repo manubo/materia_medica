@@ -27,22 +27,6 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 end
 
-group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem "web-console"
-  gem "listen"
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem "spring", "4.2.1"
-  gem "spring-watcher-listen"
-  gem "capistrano", require: false
-  gem "capistrano-rbenv"
-  gem "capistrano-bundler"
-  gem "capistrano-rails"
-  gem "ed25519"
-  gem "bcrypt_pbkdf"
-  gem "sshkit-sudo"
-end
-
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem "capybara"
@@ -54,9 +38,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "concurrent-ruby", "= 1.3.4"
-gem "bigdecimal", "~> 4.0"
-gem "mutex_m", "~> 0.3.0"
 # Only for data migration
 gem "pg"
-gem "sqlite3", "~> 1.4"
+gem "sqlite3"
